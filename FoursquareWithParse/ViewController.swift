@@ -26,12 +26,11 @@ class ViewController: UIViewController {
             }
         }
          */
-        x
         let query = PFQuery(className: "Fruits")
         query.findObjectsInBackground { objects, err in
             
             if err != nil {
-                print(err?.localizedDescription ?? "ErrorS")
+                print(err?.localizedDescription ?? "Error")
             }
             else{
                 print(objects)
