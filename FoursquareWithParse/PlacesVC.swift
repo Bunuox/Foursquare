@@ -15,6 +15,8 @@ class PlacesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPlace))
+        
+        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutButtonClicked))
 
         placesTableView.dataSource = self
         placesTableView.delegate = self
@@ -32,7 +34,18 @@ class PlacesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func addPlace(){
-        print("cagirildi")
+        performSegue(withIdentifier: "toPlaceVC", sender: nil)
+    }
+    
+    @objc func logOutButtonClicked(){
+        let user = User()
+        user.userLogOut { message in
+            if message == "Success"{
+                self.performSegue(withIdentifier: "toSignInVC", sender: nil)
+            }else{
+                print(message)
+            }
+        }
     }
     
 }

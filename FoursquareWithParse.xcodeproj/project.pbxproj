@@ -15,6 +15,9 @@
 		865072402724AE7600BE1E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8650723F2724AE7600BE1E4A /* Assets.xcassets */; };
 		865072432724AE7600BE1E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865072412724AE7600BE1E4A /* LaunchScreen.storyboard */; };
 		8684844D272AA78D000D590F /* PlacesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684844C272AA78D000D590F /* PlacesVC.swift */; };
+		86BF003327304D9900A55F03 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF003227304D9900A55F03 /* Places.swift */; };
+		86BF00352730528E00A55F03 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF00342730528D00A55F03 /* User.swift */; };
+		86BF003727305B3200A55F03 /* PlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF003627305B3200A55F03 /* PlaceVC.swift */; };
 		9E5A48B019682686DF30024D /* Pods_FoursquareWithParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0176E75031C7F8C1C4F521B /* Pods_FoursquareWithParse.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		865072422724AE7600BE1E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		865072442724AE7600BE1E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8684844C272AA78D000D590F /* PlacesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesVC.swift; sourceTree = "<group>"; };
+		86BF003227304D9900A55F03 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		86BF00342730528D00A55F03 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		86BF003627305B3200A55F03 /* PlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVC.swift; sourceTree = "<group>"; };
 		C0176E75031C7F8C1C4F521B /* Pods_FoursquareWithParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoursquareWithParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D294D5A6B92C87527F8E6622 /* Pods-FoursquareWithParse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoursquareWithParse.release.xcconfig"; path = "Target Support Files/Pods-FoursquareWithParse/Pods-FoursquareWithParse.release.xcconfig"; sourceTree = "<group>"; };
 		E5E0A8E99608CAB9861C5FEA /* Pods-FoursquareWithParse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoursquareWithParse.debug.xcconfig"; path = "Target Support Files/Pods-FoursquareWithParse/Pods-FoursquareWithParse.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +99,9 @@
 				865072442724AE7600BE1E4A /* Info.plist */,
 				8650723C2724AE7500BE1E4A /* FoursquareWithParse.xcdatamodeld */,
 				8684844C272AA78D000D590F /* PlacesVC.swift */,
+				86BF003227304D9900A55F03 /* Places.swift */,
+				86BF00342730528D00A55F03 /* User.swift */,
+				86BF003627305B3200A55F03 /* PlaceVC.swift */,
 			);
 			path = FoursquareWithParse;
 			sourceTree = "<group>";
@@ -217,6 +226,9 @@
 				865072342724AE7500BE1E4A /* AppDelegate.swift in Sources */,
 				865072362724AE7500BE1E4A /* SceneDelegate.swift in Sources */,
 				8684844D272AA78D000D590F /* PlacesVC.swift in Sources */,
+				86BF003327304D9900A55F03 /* Places.swift in Sources */,
+				86BF003727305B3200A55F03 /* PlaceVC.swift in Sources */,
+				86BF00352730528E00A55F03 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
