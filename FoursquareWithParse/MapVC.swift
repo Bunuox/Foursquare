@@ -6,24 +6,73 @@
 //
 
 import UIKit
+import MapKit
+class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-class MapVC: UIViewController {
-
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var locationManager = CLLocationManager()
+    var chosenLatitude = ""
+    var chosenLongitude = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonClicked))
+        
+        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonClicked))
+                
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        
+        
+        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(chooseLocation(gestureRecognizer: )))
+        recognizer.minimumPressDuration = 3
+        self.mapView.addGestureRecognizer(recognizer)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func chooseLocation(gestureRecognizer: UIGestureRecognizer){
+        
+        if gestureRecognizer.state == UIGestureRecognizer.State.began{
+            
+            let touches = gestureRecognizer.location(in: self.mapView)
+            let coordinates = self.mapView.convert(touches, toCoordinateFrom: self.mapView)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinates
+            annotation.title = PlaceModel.sharedInstance.placeName
+            annotation.subtitle = PlaceModel.sharedInstance.placeType
+            
+            self.mapView.addAnnotation(annotation)
+            
+            PlaceModel.sharedInstance.placeLatitude = coordinates.latitude
+            PlaceModel.sharedInstance.placeLongitude = coordinates.longitude
+        }
     }
-    */
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: location, span: span)
+        self.mapView.setRegion(region, animated: true)
+    }
+    
+    @objc func saveButtonClicked(){
+        
+        PlaceModel.sharedInstance.savePlace { message in
+            if message == "Success"{
+                print("Success")
+            }
+        }
+        
+    }
+    
+    @objc func backButtonClicked(){
+        self.dismiss(animated: true, completion: nil)
+    }
 
 }
