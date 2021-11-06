@@ -28,7 +28,6 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         
         
-        
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(chooseLocation(gestureRecognizer: )))
         recognizer.minimumPressDuration = 3
         self.mapView.addGestureRecognizer(recognizer)
@@ -59,13 +58,16 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
         self.mapView.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation()
     }
     
     @objc func saveButtonClicked(){
         
         PlaceModel.sharedInstance.savePlace { message in
             if message == "Success"{
-                print("Success")
+                self.performSegue(withIdentifier: "fromMapToTableVC", sender: "nil")
+            }else{
+                self.makeAlert(title: "Error", message: "Something happened.")
             }
         }
         
@@ -73,6 +75,15 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @objc func backButtonClicked(){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func makeAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

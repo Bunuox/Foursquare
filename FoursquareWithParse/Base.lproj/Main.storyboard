@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Trk-Wh-x3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1944.9275362318842" y="41.576086956521742"/>
+            <point key="canvasLocation" x="2000" y="42"/>
         </scene>
         <!--Place DetailsVC-->
         <scene sceneID="zzR-Wl-H66">
@@ -189,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wWj-QC-M9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="810"/>
+            <point key="canvasLocation" x="2000" y="922"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4ed-Jn-VXC">
@@ -279,12 +279,12 @@
                         <outlet property="placeNameTextField" destination="NDL-Ij-lT1" id="OWZ-zc-T9p"/>
                         <outlet property="placeTypePickerView" destination="toG-mZ-Zo0" id="AGq-3p-uGY"/>
                         <outlet property="selectImageView" destination="dZA-3A-TsQ" id="Zfs-vX-T23"/>
-                        <segue destination="LCj-Kg-wZj" kind="show" identifier="toMapVC" id="pth-Ml-9Tm"/>
+                        <segue destination="LCj-Kg-wZj" kind="presentation" identifier="toMapVC" modalPresentationStyle="fullScreen" id="pth-Ml-9Tm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7v-MQ-Hug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1308.6956521739132" y="-634.23913043478262"/>
+            <point key="canvasLocation" x="2922" y="42"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="kfo-Pu-kGA">
@@ -310,11 +310,12 @@
                     <navigationItem key="navigationItem" id="ulu-PO-PbD"/>
                     <connections>
                         <outlet property="mapView" destination="Seu-RN-Mxg" id="odu-D0-hwT"/>
+                        <segue destination="xcb-J0-wfg" kind="presentation" identifier="fromMapToTableVC" modalPresentationStyle="fullScreen" id="dhn-4I-9fe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6M-NQ-mA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2918.840579710145" y="-634.23913043478262"/>
+            <point key="canvasLocation" x="4717" y="42"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Lr-CI-R0E">
@@ -333,9 +334,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrS-Qe-ioV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2011.594202898551" y="-634.23913043478262"/>
+            <point key="canvasLocation" x="3814" y="42"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pth-Ml-9Tm"/>
+        <segue reference="dhn-4I-9fe"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.text.image" catalog="system" width="115" height="128"/>
         <image name="select" width="264" height="300"/>
